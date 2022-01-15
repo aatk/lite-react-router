@@ -122,9 +122,39 @@ return (
 * `url` - URL по которому требуется перейти
 * `hardReload` - признак перезагрузки страницы (`true` - перезагружать страницу)
 
+### Использование:
+```javascript
+import {setNavigate} from "lite-react-router"
+...
+<button onClick={()=>setNavigate("/")}>goto page1</button>
+...
+link = () => {
+    setNavigate("/page2");
+}
+<button onClick={this.link}>Button to /page2 - error route</button>
+```
+
 ## getParams()
 Функция, аналог хука useParams в react-router-dom
 
 Позволяет получить разобранные параметры из URL'а в случае если по ним требуется проводить какой-то анализ 
+
+### Использование:
+```javascript
+    URL - http://localhost:3000/page2/111/222/333
+    Route (path) - /page2/:param1/:param2/:param3
+
+    ...
+    let urlParams = getParams();
+    if (urlParams !== undefined) {
+        if (urlParams.length > 0) {
+            console.log(urlParams);
+        }
+    }
+    ...
+
+    Console:
+    ["111", "222", "333"]
+```
 
 Пример использования компоненты в папке `src` данного компонента
