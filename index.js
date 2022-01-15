@@ -146,7 +146,7 @@ export class Link extends Component {
     }
 
     render() {
-        let block = (<a href={this.props.to} className={this.props.className} onClick={this.onClickLink}>{this.props.children}</a>);
+        let block = React.createElement( "a", {href: this.props.to, className: this.props.className, onClick: this.onClickLink}, this.props.children);
         return block;
     }
 }
@@ -176,7 +176,7 @@ export class NavLink extends Link {
                 className = className + ' ' + this.props.activeClassName;
             }
         }
-        let block = (<a href={this.props.to} className={className} onClick={this.onClickLink}>{this.props.children}</a>);
+        let block = React.createElement("a",{ href: this.props.to, className: className, onClick: this.onClickLink}, this.props.children);
         return block;
     }
 }
