@@ -1,0 +1,23 @@
+{
+  "name": "lite-react-router",
+  "version": "1.0.1",
+  "description": "Роутер с совместимостью с react-router-dom с реализацией через lite-react-statemanager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aatk/lite-react-router.git"
+  },
+  "keywords": ["route", "react-router", "router"],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aatk/lite-react-router/issues"
+  },
+  "homepage": "https://github.com/aatk/lite-react-router#readme",
+  "dependencies": {
+    "lite-react-statemanager": "^1.0.7"
+  }
+}
