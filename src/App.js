@@ -36,7 +36,7 @@ class App extends Component {
                             <Route path={"/page2/:id"} component={Page2}>/page2/:id</Route>
                             <Route path={"/page2/:id/:second"} component={Page2}>/page2/:id/:second</Route>
                             <Route path={"/page3"} >Content in route tag</Route>
-                            <Route path={"/page4/*"} component={(props) => (<Page2 {...props}/>)}/>
+                            <Route path={"/page4/*"} render={(props) => (<Page2 {...props}/>)}/>
                             {loaderRoutes}
                             <>{loaderFragmentRoutes}</>
                             <Route component={ErrorPage} />

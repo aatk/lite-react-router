@@ -108,21 +108,16 @@ export class Route extends Component {
         let result = undefined;
         let RenderComponent = undefined;
         if (this.props.component !== undefined) {
-            if (this.props.component.prototype !== undefined) {
-                RenderComponent = this.props.component;
-                result = React.createElement( RenderComponent, {});
-            } else {
-                let props = {
-                    location: {...document.location}
-                };
-                props.location.math = this.props.path;
-
-                RenderComponent = this.props.component;
-                result = React.createElement( RenderComponent, {...props});
-            }
+            RenderComponent = this.props.component;
+            result = React.createElement( RenderComponent, {});
         } else if (this.props.render !== undefined) {
-            RenderComponent = this.props.render(this.props);
-            result = React.createElement( RenderComponent, {} );
+            let props = {
+                location: {...document.location}
+            };
+            props.location.math = this.props.path;
+
+            RenderComponent = this.props.component;
+            result = React.createElement( RenderComponent, {...props});
         } else {
             RenderComponent = this.props.children;
             result = React.createElement( React.Fragment, {}, RenderComponent );
