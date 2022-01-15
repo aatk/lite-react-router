@@ -116,7 +116,7 @@ export class Route extends Component {
             };
             props.location.math = this.props.path;
 
-            RenderComponent = this.props.component;
+            RenderComponent = this.props.render;
             result = React.createElement( RenderComponent, {...props});
         } else {
             RenderComponent = this.props.children;
