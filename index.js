@@ -43,7 +43,7 @@ export class Routes extends Component {
     render() {
         let nowPage = stateManager.state.location;
 
-        let RenderRoute = (<React.Fragment></React.Fragment>);
+        let RenderRoute = undefined;
         let children = this.props.children;
         if (!Array.isArray(children)) {
             children = [children];
@@ -95,6 +95,9 @@ export class Routes extends Component {
             }
         }
 
+        if (RenderRoute === undefined) {
+            return (<></>)
+        }
         return ( RenderRoute );
     }
 }
