@@ -1,6 +1,6 @@
 {
   "name": "lite-react-router",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Роутер с совместимостью с react-router-dom с реализацией через lite-react-statemanager",
   "main": "index.js",
   "scripts": {
