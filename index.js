@@ -96,7 +96,7 @@ export class Routes extends Component {
         }
 
         if (RenderRoute === undefined) {
-            return <></>
+            return React.createElement(React.Fragment, {},{});
         }
         return ( RenderRoute );
     }
