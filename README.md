@@ -27,7 +27,7 @@ return (
 
 Блок который содержит в себе только теги `<Route>` поддерживается также React.Fragment `<></>` и массивы `Array`
 
-```jsx
+```javascript
     <Routes>
         <Route ... />
         <Route ... />
@@ -54,7 +54,7 @@ return (
 Если в компонент не передать параметры `component` или `render`, будет отрендерено содержимое тега `<Route ...>Это будет отрендерено</Route>`
 
 #### Примеры использования:
-```jsx
+```javascript
     <Route exact path={"/"} component={Page1} />
     <Route path={"/page1/:id"} component={Page2}>/page1/:id</Route>
     <Route path={"/page2/:id"} component={Page2}>/page2/:id</Route>
@@ -74,6 +74,36 @@ return (
 * `blank` - говорит компоненте, что ссылку требуется открыть в новом окне
 * `hard` - говорит компоненте, что ссылку требуется открыть в текущем окне с перезагрузкой страницы
 
+#### Использование:
+##### Простая перезагрузка страницы (ререндеринг)
+```javascript
+<Link to={"/page2"} className={"css_a"}>Текст ссылки</Link>
+```
+Сформирует:
+```javascript
+<a href="/page2" className="css_a">Текст ссылки</a>
+```
+
+##### Жесткая перезагрузка страницы (перезагрузка)
+При нажатии будет перезагружать страницу целиком
+```javascript
+<Link to={"/page2"} className={"css_a"} hard>Текст ссылки</Link>
+```
+Сформирует:
+```javascript
+<a href="/page2" className="css_a">Текст ссылки</a>
+```
+
+##### Открытие в новом окне
+При нажатии откроет страницу в новом окне(вкладке)
+```javascript
+<Link to={"/page2"} className={"css_a"} blank>Текст ссылки</Link>
+```
+Сформирует (аналог):
+```javascript
+<a href="/page2" className="css_a" target="_blank">Текст ссылки</a>
+```
+
 ## `<NavLink>`
 По аналогии с компонентом NavLink в react-router-dom
 
@@ -83,18 +113,18 @@ return (
 Поддерживаются пропы (сверх пропов Link):
 * `activeClassName` - стиль CSS класса который будет применен если текущая страница и ссылка в 'to' совпадают 
 
-## setNavigate(url, hardReload)
-Функция, аналог функции useNavigate в react-router-dom
+## setNavigate(url, hardReload = false)
+Функция, аналог хука useNavigate в react-router-dom
 
 Позволяет переходить из javascript функций на роуты
 
 Параметры: 
 * `url` - URL по которому требуется перейти
-* `hardReload` - признак перезагрузки страницы
+* `hardReload` - признак перезагрузки страницы (`true` - перезагружать страницу)
 
 ## getParams()
-Функция, аналог функции useParams в react-router-dom
+Функция, аналог хука useParams в react-router-dom
 
 Позволяет получить разобранные параметры из URL'а в случае если по ним требуется проводить какой-то анализ 
 
-Пример использования компаненты в папке `src` данного компонента
+Пример использования компоненты в папке `src` данного компонента
