@@ -98,7 +98,7 @@ export class Routes extends Component {
         if (RenderRoute === undefined) {
             return React.createElement(React.Fragment, {},{});
         }
-        return ( RenderRoute );
+        return React.createElement( RenderRoute , {}, {});
     }
 }
 
@@ -110,7 +110,7 @@ export class Route extends Component {
         if (this.props.component !== undefined) {
             if (this.props.component.prototype !== undefined) {
                 RenderComponent = this.props.component;
-                result = ( <RenderComponent /> );
+                result = React.createElement( RenderComponent, {}, {});
             } else {
                 let props = {
                     location: {...document.location}
@@ -118,14 +118,14 @@ export class Route extends Component {
                 props.location.math = this.props.path;
 
                 RenderComponent = this.props.component;
-                result = ( <RenderComponent {...props}/>);
+                result = React.createElement( RenderComponent, {...props});
             }
         } else if (this.props.render !== undefined) {
             RenderComponent = this.props.render(this.props);
-            result = ( <RenderComponent />);
+            result = React.createElement( RenderComponent, {} );
         } else {
             RenderComponent = this.props.children;
-            result = ( RenderComponent );
+            result = React.createElement( RenderComponent, {} );
         }
 
         return result;
