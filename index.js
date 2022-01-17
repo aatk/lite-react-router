@@ -54,12 +54,15 @@ export class Routes extends Component {
         for (let indexChildren in children) {
             let Route = children[indexChildren];
             if (Array.isArray(Route)) {
-                //Это масив, его внутренности надо добавить в список роутов
+                //Это маcсив, его внутренности надо добавить в список роутов
                 allChildren = [...allChildren, ...Route];
             }
             else if (Route.type.toString() === 'Symbol(react.fragment)') {
                 //Это фрагмент, его внутренности надо добавить в список роутов
-                allChildren = [...allChildren, ...Route.props.children];
+                if (Array.isArray(Route.props.children)) {
+                    //Это маcсив, его внутренности надо добавить в список роутов
+                    allChildren = [...allChildren, ...Route.props.children];
+                }
             }
             else {
                 allChildren.push(Route)
