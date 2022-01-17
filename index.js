@@ -11,9 +11,10 @@ export class Router extends Component {
         }
 
         stateManager.setState({location: document.location.pathname}, this);
+        this.rerender = this.rerender.bind(this);
     }
 
-    rerender = (state) => {
+    rerender(state) {
         this.forceUpdate();
     }
 
@@ -130,7 +131,13 @@ export class Route extends Component {
 
 export class Link extends Component {
 
-    onClickLink = (e) => {
+    constructor(props) {
+        super(props);
+
+        this.onClickLink = this.onClickLink.bind(this);
+    }
+
+    onClickLink(e) {
         e.preventDefault();
         if (this.props.blank) {
             window.open(this.props.to, '_blank');
