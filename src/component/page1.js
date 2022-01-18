@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Text from "./Text";
-import {Link, setNavigate} from "../../index";
+import {Link, setNavigate} from "lite-react-router";
 
 class Page1 extends Component {
 

@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Text from "./Text";
-import {NavLink, setNavigate, getParams} from "../../index";
+import {NavLink, setNavigate, getParams} from "lite-react-router";
 
 class Page2 extends Component {
 

@@ -4,7 +4,7 @@ import Page1 from "./component/page1";
 import Page2 from "./component/page2";
 import ErrorPage from "./component/errorpage";
 
-import {Router, Routes, Route} from '../index';
+import {Router, Routes, Route} from 'lite-react-router';
 
 class App extends Component {
 

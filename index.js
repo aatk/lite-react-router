@@ -109,17 +109,17 @@ export class Routes extends Component {
 export class Route extends Component {
 
     render() {
+        let props = {
+            location: {...document.location}
+        };
+        props.location.math = this.props.path;
+
         let result = undefined;
         let RenderComponent = undefined;
         if (this.props.component !== undefined) {
             RenderComponent = this.props.component;
-            result = React.createElement( RenderComponent, {}, this.props.children);
+            result = React.createElement( RenderComponent, {...props}, this.props.children);
         } else if (this.props.render !== undefined) {
-            let props = {
-                location: {...document.location}
-            };
-            props.location.math = this.props.path;
-
             RenderComponent = this.props.render;
             result = React.createElement( RenderComponent, {...props}, this.props.children);
         } else {
@@ -192,7 +192,9 @@ export function setNavigate(url, hardReload = false) {
     }
     else {
         window.history.pushState({}, url, url);
-        stateManager.setState({location: url});
+        let createA = document.createElement('a');
+        createA.setAttribute('href', url);
+        stateManager.setState({location: createA.pathname});
     }
 }
 
